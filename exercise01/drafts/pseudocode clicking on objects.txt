@@ -1,0 +1,12 @@
+function/if mousepressed
+	for every clickable object
+		if mouse is in x
+			do thing
+		elif mouse is in y
+			do other thing
+		...
+			
+
+
+https://www.youtube.com/watch?v=DEHsr4XicN8
+https://forum.processing.org/one/topic/mouse-click-on-object.html

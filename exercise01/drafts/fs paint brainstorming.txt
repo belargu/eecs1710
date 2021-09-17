@@ -1,0 +1,19 @@
+NO FILL BUCKET (too complicated for now)
+NO ERASER (just draw with white idk)
+
+possible controls:
+	shift+click = draw rect
+	ctrl+click = draw ellipse
+
+	click on color = set line color
+	right click on color = set fill color
+
+	click&drag on canvas = draw
+
+
+
+
+drawing layer
+bg layer (put on top to overwrite any drawing that went out of bounds)
+button layer
+
