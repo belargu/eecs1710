@@ -80,7 +80,8 @@ void draw() {
 
     //click save button to save image
     if (mouseX>width-77 && mouseX<width-77+69 && mouseY>8 && mouseY<8+69) {
-      print("test");
+      PImage croppedImage = get(5,91,800,600);
+      croppedImage.save("image.jpg");
     }
         
   }
@@ -94,9 +95,12 @@ void draw() {
   }
   
   //save btn; too lazy to make it an object
-  stroke(0,127,0);
-  strokeWeight(2);
-  fill(0,255,0);
+  stroke(uiOutline);
+  strokeWeight(7);
+  rect(width-77,8,69,69);
+  stroke(255);
+  strokeWeight(4);
+  fill(0,0,255);
   rect(width-77,8,69,69);
   strokeWeight(8);
   line(width-50,65,width-65,50);
@@ -169,5 +173,3 @@ void mouseWheel(MouseEvent event) {
   brushWidth =1;  
   }
 }
-
-//saving img code
