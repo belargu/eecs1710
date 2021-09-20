@@ -63,12 +63,15 @@ void draw() {
   
   //all clicking
   if (mousePressed) {
-    fill(brushColor);
-    stroke(brushColor);
-    strokeWeight(0);
-    ellipse(mouseX,mouseY,brushWidth,brushWidth);
-    strokeWeight(brushWidth);
-    line(mouseX,mouseY,pmouseX,pmouseY);
+    //draw within canvas
+    if (mouseX>5 && mouseX<805 && mouseY>91 && mouseY<691) {
+      fill(brushColor);
+      stroke(brushColor);
+      strokeWeight(0);
+      ellipse(mouseX,mouseY,brushWidth,brushWidth);
+      strokeWeight(brushWidth);
+      line(mouseX,mouseY,pmouseX,pmouseY);
+    }
     
     //click ColorBtn to change lineColor
     for (int i=0; i<=13; i+=1) {
