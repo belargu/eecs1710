@@ -8,4 +8,4 @@ drafts: contains drafts & experiments (don't have to look)
 * pseudocode clicking on objects.txt: more brainstorming
 * ui draft.mdp: can only be opened with medibang paint/firealpaca, this is just a sketch
 
-fspaint: fake ms paint (look at this)
+## fspaint: fake ms paint (look at this)
