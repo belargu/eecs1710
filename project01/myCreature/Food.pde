@@ -1,26 +1,18 @@
 class Food {
-  float x, y;
+  PVector pos;
   PImage photo;
   String[] foodNames = {"bananaslug.png","burger.png","chicken.png","froglegs.png",
   "hotdog.png","lollipop.png","meatball.png","persimmon.png","shrimp.png",
   "steak.png"};
-  boolean eaten = false;
   
   Food(float tempX, float tempY) {
-    x = tempX;
-    y = tempY;
+    pos = new PVector(tempX,tempY);
     imageMode(CENTER);
     photo = loadImage(foodNames[int(random(foodNames.length))]);
   }
   
   void draw() {
-    if (eaten == false) {
-      image(photo,x,y);
-    }
+    image(photo,pos.x,pos.y);
   }
   
-  void eat() {
-    eaten = true;
-  }
-
 }
