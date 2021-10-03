@@ -1,19 +1,23 @@
 /**
 Date: 10-01-2021
 Description:
-  changing creature states to switch cases rather than lots of if statements
-  adding food functionality (placing food, eating food, drawing/undrawing food)
+  making creature run away from mouse depending on trust
+  adding more photos
+  
 Reference:
   - Prof. Fox Gieg's Creature01.pde, Creature02.pde
   - processing.org/reference
-  - for findNearestEdge(): 
+  - for nearestEdge(): 
     https://www.javatpoint.com/java-program-to-print-the-smallest-element-in-an-array
-  - 
-
+  - for getNearestFood():
+    https://www.geeksforgeeks.org/finding-the-minimum-or-maximum-value-in-java-
+    arraylist/
+    
 */
 
 //creating vars
 Creature creature;
+Subtitle subtitle;
 color yellow = color(255,255,0);
 PFont times;
 PImage bg;
@@ -31,6 +35,7 @@ void setup() {
   times = createFont("Times New Roman",72);
   
   creature = new Creature();
+  subtitle = new Subtitle();
 
   //create margins
   marginUp = 5;
@@ -55,15 +60,26 @@ void draw() {
   //ui
   health.draw();
   trust.draw();
+  subtitle.draw();
 
 
   //creature conditionals
+  if (health.value > .74) {
+    creature.targetDist = 100;
+  } else if (health.value > .24) {
+    creature.targetDist = 50;
+  } else if (health.value > 0) {
+    creature.targetDist = 15;
+  }
+  
   if (health.value <= 0) {
     creature.state = "dead";
+    subtitle.currentLine = subtitle.deadLine;
   }
   
   if (trust.value <= 0)  {
     creature.state = "escaping";
+    subtitle.currentLine = subtitle.escapedLine;
   }
   
   if (foodList.size() > 0) {
@@ -86,11 +102,17 @@ void mousePressed() {
     mouseY<creature.pos.y+50) {
       health.value-=0.025;
       trust.value-=0.0375;
+      subtitle.currentLine = subtitle.hitLines
+      [int(random(subtitle.hitLines.length))];
       print("hit\n");
     }
     //scaring
     else if (creature.state == "alive") {
+      creature.aliveState = "scared";
+      creature.run();
       trust.value-=0.025;
+      subtitle.currentLine = subtitle.scareLines
+      [int(random(subtitle.scareLines.length))];
       print("scare\n");
     }
   } 
@@ -100,12 +122,18 @@ void mousePressed() {
     mouseX<creature.pos.x+50 && mouseY>creature.pos.y-50 && 
     mouseY<creature.pos.y+50) {
       trust.value+=0.01;
+      subtitle.currentLine = subtitle.petLines
+      [int(random(subtitle.petLines.length))];
       print("pet\n");
     }
     //placing food
     else if (mouseX > marginLeft && mouseX < marginRight && 
     mouseY > marginUp && mouseY < marginDown){
       foodList.add(new Food(mouseX,mouseY));
+      subtitle.currentLine = subtitle.foodLine+
+      foodList.get(foodList.size()-1).name.
+      substring(0,foodList.get(foodList.size()-1).name.length()-4);
+      print("food\n");
     }
   } 
 }
