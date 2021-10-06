@@ -34,17 +34,17 @@ void setup() {
     //switch case to change toBeMoved, since each row uses diff time unit
     switch(i) {
       case 0:
-        toBeMoved = abacus.rowLengths[i+1]-(s-s%10)/10;
+        toBeMoved = (s-s%10)/10;
         break;
       case 1:
-        toBeMoved = abacus.rowLengths[i+1]-m%10;
+        toBeMoved = m%10;
         break;
       case 2:
-        toBeMoved = abacus.rowLengths[i+1]-(m-m%10)/10;
+        toBeMoved = (m-m%10)/10;
         break;
       case 3:
         if (h >= 12) h-=12;
-        toBeMoved = abacus.rowLengths[i+1]-h;
+        toBeMoved = h;
         break;
       case 4:
         break;
