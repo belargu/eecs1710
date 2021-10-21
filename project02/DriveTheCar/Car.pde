@@ -7,6 +7,7 @@ class Car {
   float dist = 0;
   float vel = 0;
   PImage img;
+  PVector[] vertices = new PVector[4];
 
   Wheel[] wheels = new Wheel[2];
 
@@ -20,12 +21,29 @@ class Car {
       wheels[i] = new Wheel(pos.x+temp+36, pos.y+168+36);
       temp+= 185;
     }
+
+    //hitbox coords
+    vertices[0] = new PVector(pos.x+60,pos.y+160);
+    vertices[1] = new PVector(pos.x+img.width,pos.y+160);
+    vertices[2] = new PVector(pos.x+img.width-60,pos.y+img.height);
+    vertices[3] = new PVector(pos.x,pos.y+img.height);
+    
   }
 
   void draw() {
     fill(203, 21, 0);
     imageMode(CORNER);
     image(img, pos.x, pos.y);
+    
+    /**
+    //rect hitbox representation
+    noStroke();
+    beginShape();
+    for (PVector v : vertices) {
+      vertex(v.x, v.y);
+    }
+    endShape();
+    */
 
     for (Wheel i : wheels) {
       i.draw();
@@ -36,14 +54,15 @@ class Car {
     //controls
     if (keyPressed && key == ' ') {
       vel+= 0.1;
-      print(vel+"\n");
+      //print(vel+"\n");
+      //print(dist+"\n");
     } else {
       vel-= 0.1;
-      print(vel+"\n");
+      //print(vel+"\n");
     }
     if (vel < 0) {
       vel = 0;
-      print(vel+"\n");
+      //print(vel+"\n");
     }
 
     dist+=vel;

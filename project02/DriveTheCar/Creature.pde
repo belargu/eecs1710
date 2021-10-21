@@ -1,6 +1,6 @@
 /**
-cointains creature class.
-lore: you ran over the creature at the beginning of level1 & it comes back from the dead to chase you in level3
+ cointains creature class.
+ lore: you ran over the creature at the beginning of level1 & it comes back from the dead to chase you in level3
  */
 
 class Creature {
@@ -24,7 +24,7 @@ class Creature {
     rotate(radians(angle));
     image(limbs, pos.x/width, pos.y/height);
     popMatrix();
-    
+
     image(body, pos.x, pos.y);
   }
 }
