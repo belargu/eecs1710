@@ -1,15 +1,12 @@
 /**
- Date: 10-21-2021
+ Date: 10-22-2021
  Description:
-   things to do:
-   - implement obstacles
-   - implement hitboxes
-   - add minimap/meter to toolbar
-   - add finish line
-   - playtest level lengths & difficulty
+   this version has been playtested a bit.
    
-   bonus?
+   extra things to add if i have time:
+   - sound
    - smoother transitions btwn levels (fade in/out)
+   - more obstactle types
  
  Reference:
  - parallelogram hitbox/collision:

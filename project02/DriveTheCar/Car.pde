@@ -87,7 +87,6 @@ class Wheel {
 
   void draw() {
     //rotating 
-
     pushMatrix();
     imageMode(CENTER);
     translate(pos.x, pos.y);

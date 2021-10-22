@@ -1,5 +1,5 @@
 /**
- cointains creature class.
+ contains creature class.
  lore: you ran over the creature at the beginning of level1 & it comes back from the dead to chase you in level3
  */
 

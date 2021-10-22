@@ -3,14 +3,6 @@
  */
 
 class StartScreen extends Level {
-  /*
-  int delay = 0;
-   color[] colorList = {blue, darkBlue, darkRed, red};
-   int colorIdx = 0;
-   color meterColor;
-   float meterWidth = 0;
-   float vel = 0;
-   */
   PImage bg2 = loadImage("step.png");
   PImage currentBg;
 
@@ -112,7 +104,7 @@ class GameOver extends Level {
   int colorIdx;
 
   GameOver(int tempNum) {
-    //pass GameLevel in parameters to use to go back
+    //pass a GameLevel's levelNum in parameters to use to go back
     prevLevelNum = tempNum;
     if (prevLevelNum == 2) {
       idxStart = 4;
