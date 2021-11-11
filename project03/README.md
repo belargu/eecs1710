@@ -1,10 +1,10 @@
 ## program takes a long time to load... pls be patient i swear it works
 
+## you can use any image; put it in the data folder & change the name in the .pde file
+
 a program that changes hsv of image & dithers in real time
 
 very helpful for me since i dither a lot of images & i had to fiddle with these parameters manually & it was very time consuming
-
-### you can use any image; put it in the data folder & change the name in the .pde file
 
 # controls:
 hold click & drag on 1st img: adjust brightness & saturation
