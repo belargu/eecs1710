@@ -31,7 +31,7 @@ https://forum.processing.org/one/topic/is-there-a-way-to-resize-the-display-wind
 //must be in data folder
 String fileName = "bird.jpg";
 //change this int to scale
-int outputHeight = 600;
+int outputHeight = 400;
 
 PImage filteredImg, ditheredImg, img;
 boolean starting = true;
@@ -67,7 +67,6 @@ void draw() {
   image(filteredImg,0,0);
   
   //dithered img
-  dither(ditheredImg);
   image(ditheredImg,width/2,0);
   
   //check for mousepressed in here too even tho there's a fcn
@@ -90,6 +89,8 @@ void update(int xPos, int yPos) {
   export.save("data\\filtered.png");
   
   ditheredImg = loadImage("filtered.png");
+  //DITHER
+  dither(ditheredImg);
   
 }
 
