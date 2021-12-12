@@ -1,5 +1,5 @@
 /**
-button class & songButton class (2 classes in 1 file to save space)
+button class & songButton class & sliderbtn (3 classes in 1 file to save space)
 */
 
 class Button {
@@ -54,6 +54,7 @@ class Button {
             break;
           case "new song":
             currentLevel = new SongSelect();
+            mousePressed = false;
             break;
         }
       }
@@ -66,6 +67,7 @@ class Button {
 }
 
 /*------------------------------------------------------------*/
+
 class SongButton {
   String name, numString;
   int num;
@@ -119,6 +121,41 @@ class SongButton {
       color1 = GREEN;
       color2 = BLACK;
     }   
-  }
+  } 
+}
+
+/*------------------------------------------------------------*/
+
+class SliderButton {
+  PVector pos;
+  color color1 = BLACK;
+  color color2 = RED;
   
+  SliderButton(int x, int y) {
+    pos = new PVector(x,y);
+  }
+  void draw() {
+    ellipseMode(RADIUS);
+    strokeWeight(2);
+    stroke(color1);
+    fill(color2);
+    ellipse(pos.x,pos.y,20,20);
+    
+    //hover
+    if (mouseX > pos.x-15 && mouseX < pos.x+15 
+    && mouseY > pos.y-15 && mouseY < pos.y+15) {
+      color1 = RED;
+      color2 = WHITE;
+      
+      //click
+      if (mousePressed == true) {
+        pos.x = constrain(mouseX,205,605);
+        threshold = map(pos.x,205,605,0,0.1);
+      }
+    } else {
+      color1 = BLACK;
+      color2 = RED;
+    }
+    
+  }
 }

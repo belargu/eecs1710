@@ -37,10 +37,6 @@ class AMidiPlayer implements Receiver {
   public void start() {
     sequencer.start();
   }
-  
-  public void stop() {
-    sequencer.stop();
-  }
 
   public void update() {
     for (Note n : midiData.values()) {
